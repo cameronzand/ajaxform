@@ -7,34 +7,49 @@ var form = $(".form");
 
 
 
-function grabForm (event) {
 
-	var info = $.ajax({
-		url: `https://json-data.herokuapp.com/forms`,
-		success: addForm,
 
-	});
-return info;
-};
-console.log(grabForm())
+var info = $.ajax({
+	url: `https://json-data.herokuapp.com/forms`,
+	success: addForm,
+});
+
 
 
 
 
 
 function addForm (data){
-	var formHTML = formTemplate(data);
-	form.append(formHTML);
+	for (var i = 0; i < data.length; i++){ 
+		var formHTML = formTemplate(i, data);
+		form.append(formHTML);
+	}
 }
 
 
 
 
 
-function formTemplate (input) {
-	return `
+function formTemplate (index, array) {
 
-	Test test test test
+	if (array[index].type === "select"){
+		var HTML = `
+		<select class="selectBar" name="selectB">`;
+		console.log(array[index].options);
+		for (var i=0; i<array[index].options.length; i++){
+			var optionHTML = `<option>${array[index].options[i].label}</option>`;
+			HTML = HTML+optionHTML;
+			console.log("test");
+		}
+		HTML=HTML+`</select>`;
+		return HTML;
+	} else {
+		var HTML = `
+		
+		<i class="fa ${array[index].icon}"></i>
+		<input class="inputBar" type="${array[index].type}" placeholder="${array[index].label}">
 
-	`
+		` ;
+		return HTML;
+	}
 }
