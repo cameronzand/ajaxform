@@ -28,7 +28,15 @@
 }
 
 button {
-	margin-top: 40px;
+	margin-top: 20px;
+	background-color: #3E79BB;
+	color: white;
+	-moz-border-radius: 3px;
+  	-webkit-border-radius: 3px;
+ 	border: 0;
+ 	height: 30px;
+ 	width: 120px;
+ 	font-size: 12px;
 
 }
 
@@ -93,4 +101,25 @@ button {
 
 }
 
+.yourComment {
+	width: 400px;
+	height: 80px;
+	margin-top: 10px;
+	margin-left: 3px;
+	margin-bottom: 10px;
+}
+// .test  {
+// 	margin-left: 90px;
+// 	color: red;
 
+// }
+
+.kewl {
+	right: 2px;
+	top: -83px;
+
+}
+
+.mobil {
+	left: -400px;
+}
